@@ -1,0 +1,19 @@
+<svg width="3.5in" height="2in" viewBox="0 0 1050 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title-front desc-front">
+<title id="title-front">Sanjay Selvaraj business card — front</title>
+<desc id="desc-front">Dark navy business card with teal SS. logo mark, name Sanjay Selvaraj, title Site Reliability Engineer, and location Chennai, India.</desc>
+<defs>
+<style>
+  .name { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; }
+  .body { font-family: 'Inter', system-ui, sans-serif; }
+</style>
+</defs>
+<rect width="1050" height="600" fill="#090d18"/>
+<rect x="0" y="0" width="1050" height="600" fill="none" stroke="#232f4d" stroke-width="2"/>
+<circle cx="940" cy="80" r="220" fill="#0d1326"/>
+<text x="90" y="200" class="name" font-size="64" fill="#eef1fa">SS<tspan fill="#44e0c4">.</tspan></text>
+<rect x="90" y="232" width="64" height="4" fill="#44e0c4"/>
+<text x="90" y="330" class="name" font-size="52" fill="#eef1fa">Sanjay Selvaraj</text>
+<text x="90" y="378" class="body" font-size="26" fill="#44e0c4">Site Reliability Engineer</text>
+<text x="90" y="500" class="body" font-size="22" fill="#9aa6c2">Chennai, India</text>
+<text x="90" y="540" class="body" font-size="22" fill="#9aa6c2">Incident management · Kubernetes · AWS</text>
+</svg>
