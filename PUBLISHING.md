@@ -4,6 +4,7 @@ Repeat this for every new blog post. The site (`/blogs/`) is always the canonica
 
 1. **Write and publish on the site first.**
    - Add the post under `blogs/`, link it from `blogs/index.html`.
+   - Compute reading time (word count in `.post-body` ÷ 200 wpm, rounded up) and add a `.post-meta` block with `· N min read` next to the date — on both the `blogs/index.html` card and the post's own `<h1>` header.
    - Add an entry to `sitemap.xml` with the publish date.
    - Commit and push to `main`; confirm it's live at `https://sanjay-ragavan.github.io/blogs/<slug>.html`.
 

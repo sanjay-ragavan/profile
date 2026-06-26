@@ -59,6 +59,18 @@
   letter-spacing: 0.5px;
 }
 
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-read-time {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 .post-card h2 {
   margin-top: 0.5rem;
   font-size: 1.3rem;
@@ -94,8 +106,7 @@
   padding: 7rem 6% 6rem;
 }
 
-.post-article .post-date {
-  display: block;
+.post-article .post-meta {
   margin-bottom: 0.8rem;
 }
 
