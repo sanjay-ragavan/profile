@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kubernetes Roadmap: From Fundamentals to Production-Grade — Sanjay Selvaraj</title>
+<meta name="description" content="A complete Kubernetes roadmap from fundamentals to production-grade and advanced topics, organized by level — useful for anyone learning Kubernetes for an SRE or DevOps role.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b1120'/%3E%3Ctext x='50' y='68' font-size='52' font-family='Arial,sans-serif' font-weight='800' fill='%2344e0c4' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<div class="bg-mesh" aria-hidden="true">
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+  <span class="blob blob-3"></span>
+  <span class="grid-overlay"></span>
+</div>
+
+<header>
+  <nav>
+    <a href="../" class="logo">SS<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="../" class="nav-link">Home</a></li>
+      <li><a href="./" class="nav-link active">Blog</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle light/dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <article class="post-article">
+    <a href="./" class="back-to-blog">&larr; Back to blog</a>
+
+    <time class="post-date" datetime="2026-06-26">June 26, 2026</time>
+    <h1>Kubernetes Roadmap: From Fundamentals to Production-Grade</h1>
+    <p class="post-subtitle">A complete, level-by-level map of Kubernetes — from the basics to production and advanced topics. Use it as a checklist for your own learning.</p>
+
+    <div class="post-body">
+      <p>
+        Kubernetes has a famously steep learning curve — not because any single concept is hard on its own,
+        but because the topics span such different layers, from the basics of pods and deployments all the
+        way to service mesh and multi-cluster operations.
+      </p>
+      <p>
+        This roadmap lays out that whole surface area, organized by level, so you can work through it
+        in order or jump to whatever you're missing. It's aimed at anyone learning Kubernetes seriously,
+        especially if you're heading toward an SRE or DevOps role and need production-relevant depth, not
+        just enough to deploy a demo app.
+      </p>
+      <p>
+        The fastest way through any of this is hands-on: spin up a local cluster with
+        <strong>Kind</strong>, <strong>Minikube</strong>, or <strong>k3d</strong>, and run every example
+        yourself with <code>kubectl</code> rather than just reading about it.
+      </p>
+
+      <h2>Beginner</h2>
+      <p>The fundamentals: what Kubernetes is, how a cluster fits together, and the building blocks you'll touch in every cluster you ever work with.</p>
+      <ul>
+        <li>What Kubernetes is, and the problem it solves</li>
+        <li>Cluster architecture — control plane vs. worker nodes</li>
+        <li>Pods, Deployments, and ReplicaSets</li>
+        <li>Services (basic pod-to-pod networking)</li>
+        <li>Namespaces</li>
+        <li>Core <code>kubectl</code> commands: <code>get</code>, <code>describe</code>, <code>logs</code>, <code>exec</code>, <code>apply</code>, <code>delete</code>, <code>scale</code>, <code>top</code></li>
+        <li>Writing YAML manifests for Pods, Deployments, Services, and Namespaces</li>
+        <li>ConfigMaps and Secrets — getting configuration and sensitive data into Pods</li>
+      </ul>
+
+      <h2>Intermediate</h2>
+      <p>Once the basics are solid, this is where you learn to run real workloads reliably — not just a single web server — and let Kubernetes self-heal instead of babysitting it.</p>
+      <ul>
+        <li>Persistent Volumes &amp; Persistent Volume Claims</li>
+        <li>StorageClasses</li>
+        <li>StatefulSets, for stateful apps like databases</li>
+        <li>DaemonSets, for one pod per node</li>
+        <li>Jobs &amp; CronJobs — run-to-completion and scheduled workloads</li>
+        <li>Init Containers &amp; multi-container Pods</li>
+        <li>Liveness, Readiness &amp; Startup Probes</li>
+        <li>Resource Requests &amp; Limits</li>
+        <li>Horizontal Pod Autoscaler (HPA) &amp; Vertical Pod Autoscaler (VPA)</li>
+      </ul>
+
+      <h2>Networking</h2>
+      <p>How traffic actually reaches your Pods, both inside and outside the cluster.</p>
+      <ul>
+        <li>Service types: ClusterIP, NodePort, LoadBalancer, ExternalName</li>
+        <li>Headless Services</li>
+        <li>DNS &amp; CoreDNS</li>
+        <li>Ingress &amp; Ingress Controllers</li>
+        <li>Network Policies — controlling pod-to-pod traffic</li>
+      </ul>
+
+      <h2>Security</h2>
+      <p>Who can do what, and how workloads stay isolated from each other.</p>
+      <ul>
+        <li>RBAC: Roles, ClusterRoles, RoleBindings, ClusterRoleBindings</li>
+        <li>Service Accounts</li>
+        <li>Pod Security Standards</li>
+        <li>Security Contexts</li>
+        <li>Admission Controllers</li>
+      </ul>
+
+      <h2>Storage (advanced)</h2>
+      <p>Beyond basic PV/PVC: how storage actually gets provisioned and protected at scale.</p>
+      <ul>
+        <li>CSI Drivers</li>
+        <li>Dynamic Provisioning</li>
+        <li>Volume Snapshots</li>
+        <li>Access modes: ReadWriteOnce, ReadOnlyMany, ReadWriteMany</li>
+      </ul>
+
+      <h2>Scheduling</h2>
+      <p>Controlling exactly where Pods run, and why.</p>
+      <ul>
+        <li>Labels &amp; Selectors</li>
+        <li>Taints &amp; Tolerations</li>
+        <li>Node Affinity, Pod Affinity &amp; Anti-Affinity</li>
+        <li>Priority Classes</li>
+      </ul>
+
+      <h2>Observability</h2>
+      <p>Knowing what's actually happening inside your cluster.</p>
+      <ul>
+        <li>Metrics Server, Prometheus &amp; Grafana</li>
+        <li>Alertmanager</li>
+        <li>Logging: Fluent Bit, Loki, Elasticsearch, Kibana</li>
+        <li>Distributed tracing with OpenTelemetry</li>
+      </ul>
+
+      <h2>Package management</h2>
+      <p>Installing and managing applications without hand-writing every manifest.</p>
+      <ul>
+        <li>Helm — installing, upgrading, and uninstalling releases</li>
+        <li>Helm charts &amp; values files</li>
+        <li>Chart development &amp; dependencies</li>
+      </ul>
+
+      <h2>Production Kubernetes</h2>
+      <p>The operational concerns that only matter once real users depend on your cluster.</p>
+      <ul>
+        <li>Rolling Updates &amp; Rollbacks</li>
+        <li>Pod Disruption Budgets</li>
+        <li>Resource Quotas &amp; LimitRanges</li>
+        <li>Backup &amp; restore, etcd</li>
+        <li>High availability</li>
+        <li>Cluster upgrades</li>
+      </ul>
+
+      <h2>GitOps &amp; CI/CD</h2>
+      <p>Deploying changes to the cluster safely and repeatably.</p>
+      <ul>
+        <li>GitOps concepts</li>
+        <li>Argo CD</li>
+        <li>Jenkins + Kubernetes</li>
+        <li>GitHub Actions + Kubernetes</li>
+        <li>Image automation</li>
+      </ul>
+
+      <h2>Cloud Kubernetes</h2>
+      <p>Running on a managed provider instead of operating your own control plane.</p>
+      <ul>
+        <li>Amazon EKS, Azure AKS, Google GKE</li>
+        <li>Cloud load balancers &amp; IAM integration</li>
+        <li>Autoscaling &amp; managed node groups</li>
+      </ul>
+
+      <h2>Advanced</h2>
+      <p>Extending Kubernetes itself, for when you've outgrown the built-in resource types.</p>
+      <ul>
+        <li>Custom Resource Definitions (CRDs) &amp; Operators</li>
+        <li>Admission Webhooks</li>
+        <li>API Aggregation</li>
+        <li>Service mesh: Istio, Linkerd</li>
+        <li>Kustomize</li>
+        <li>Helm chart development</li>
+        <li>Multi-cluster Kubernetes</li>
+      </ul>
+
+      <h2>If you're aiming for an SRE or DevOps role</h2>
+      <p>
+        Once the beginner fundamentals are solid, this is a practical order for the rest — it tracks closely
+        with what actually shows up in production Kubernetes environments:
+      </p>
+      <ol>
+        <li>StatefulSets</li>
+        <li>Jobs &amp; CronJobs</li>
+        <li>Liveness, Readiness &amp; Startup Probes</li>
+        <li>Resource Requests &amp; Limits</li>
+        <li>RBAC</li>
+        <li>Ingress &amp; Ingress Controller</li>
+        <li>HPA &amp; Cluster Autoscaler</li>
+        <li>Taints, Tolerations &amp; Affinity</li>
+        <li>Network Policies</li>
+        <li>Kustomize</li>
+        <li>CRDs &amp; Operators</li>
+        <li>Service Mesh (Istio)</li>
+      </ol>
+
+      <p>
+        Treat this as a living checklist: work through each level, get genuinely hands-on rather than just
+        reading, and by the time you reach the advanced section you'll have the kind of depth that actually
+        holds up in production — and in interviews.
+      </p>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Sanjay Selvaraj. Built with care.</p>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5m0 0l-6 6m6-6l6 6"/></svg>
+  </button>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
