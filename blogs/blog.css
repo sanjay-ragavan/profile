@@ -1,0 +1,181 @@
+/* Blog-specific styles, layered on top of the shared ../style.css design system. */
+
+.blog-header {
+  padding: 7rem 6% 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.blog-header h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, var(--text), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.blog-header p {
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.post-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 6% 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.8rem 2rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.post-date {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.post-card h2 {
+  margin-top: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.post-card p {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.post-read-more {
+  display: inline-block;
+  margin-top: 0.9rem;
+  color: var(--accent-2);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+}
+
+/* Individual post article */
+.post-article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 7rem 6% 6rem;
+}
+
+.post-article .post-date {
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.post-article h1 {
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.post-article .post-subtitle {
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.post-body {
+  margin-top: 2.5rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.post-body p {
+  margin-bottom: 1.3rem;
+}
+
+.post-body h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 2.2rem 0 1rem;
+}
+
+.post-body h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 1.8rem 0 0.8rem;
+}
+
+.post-body ul, .post-body ol {
+  margin: 0 0 1.3rem 1.4rem;
+  color: var(--text);
+}
+
+.post-body li {
+  margin-bottom: 0.5rem;
+}
+
+.post-body code {
+  background: var(--surface-2);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.post-body pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  overflow-x: auto;
+  margin-bottom: 1.3rem;
+}
+
+.post-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  margin: 0 0 1.3rem;
+}
+
+.back-to-blog {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.back-to-blog:hover {
+  color: var(--accent);
+}

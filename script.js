@@ -89,7 +89,8 @@ function typeLoop() {
   }
   setTimeout(typeLoop, deleting ? 40 : 70);
 }
-typeLoop();
+// Pages that reuse this script (e.g. the blog) don't have a #typewriter element.
+if (typewriterEl) typeLoop();
 
 // Animated counters. HTML already contains the correct final value in each element
 // (e.g. "250+") so that content is accurate even if this script never runs; here we
