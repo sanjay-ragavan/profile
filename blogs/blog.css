@@ -1,8 +1,14 @@
 /* Blog-specific styles, layered on top of the shared ../style.css design system. */
 
+/* The animated gradient mesh works for the marketing-style homepage but hurts
+   long-form reading, so blog pages use a clean flat background instead. */
+.bg-mesh {
+  display: none;
+}
+
 .blog-header {
   padding: 7rem 6% 3rem;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
@@ -24,7 +30,7 @@
 }
 
 .post-list {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 6% 6rem;
   display: flex;
@@ -83,7 +89,7 @@
 
 /* Individual post article */
 .post-article {
-  max-width: 720px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 7rem 6% 6rem;
 }
