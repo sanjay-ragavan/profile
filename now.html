@@ -3,24 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog — Sanjay Selvaraj</title>
-<meta name="description" content="Writing on SRE, incident management, Kubernetes, AWS, and building reliable systems.">
-<link rel="canonical" href="https://sanjay-ragavan.github.io/blogs/">
+<title>Now — Sanjay Selvaraj</title>
+<meta name="description" content="What Sanjay Selvaraj is currently learning and focused on.">
+<link rel="canonical" href="https://sanjay-ragavan.github.io/now.html">
 
-<meta property="og:title" content="Blog — Sanjay Selvaraj">
-<meta property="og:description" content="Writing on SRE, incident management, Kubernetes, AWS, and building reliable systems.">
+<meta property="og:title" content="Now — Sanjay Selvaraj">
+<meta property="og:description" content="What Sanjay Selvaraj is currently learning and focused on.">
 <meta property="og:image" content="https://sanjay-ragavan.github.io/assets/profile.jpg">
 <meta property="og:image:width" content="800">
 <meta property="og:image:height" content="800">
 <meta property="og:image:alt" content="Sanjay Selvaraj">
-<meta property="og:url" content="https://sanjay-ragavan.github.io/blogs/">
+<meta property="og:url" content="https://sanjay-ragavan.github.io/now.html">
 <meta property="og:site_name" content="Sanjay Selvaraj">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_US">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog — Sanjay Selvaraj">
-<meta name="twitter:description" content="Writing on SRE, incident management, Kubernetes, AWS, and building reliable systems.">
+<meta name="twitter:title" content="Now — Sanjay Selvaraj">
+<meta name="twitter:description" content="What Sanjay Selvaraj is currently learning and focused on.">
 <meta name="twitter:image" content="https://sanjay-ragavan.github.io/assets/profile.jpg">
 <meta name="twitter:image:alt" content="Sanjay Selvaraj">
 
@@ -29,16 +29,17 @@
 <meta name="robots" content="index, follow">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230b1120%22/%3E%3Ctext%20x%3D%2234%22%20y%3D%2265%22%20font-size%3D%2240%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-weight%3D%22800%22%20fill%3D%22%23eef1fa%22%20text-anchor%3D%22middle%22%3ESS%3C/text%3E%3Ccircle%20cx%3D%2269%22%20cy%3D%2258%22%20r%3D%226%22%20fill%3D%22%2344e0c4%22/%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230b1120%22/%3E%3Ctext%20x%3D%2234%22%20y%3D%2265%22%20font-size%3D%2240%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-weight%3D%22800%22%20fill%3D%22%23eef1fa%22%20text-anchor%3D%22middle%22%3ESS%3C/text%3E%3Ccircle%20cx%3D%2269%22%20cy%3D%2258%22%20r%3D%226%22%20fill%3D%22%2344e0c4%22/%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="../style.css">
-<link rel="stylesheet" href="blog.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="progress-bar" id="progressBar"></div>
 <div class="bg-mesh" aria-hidden="true">
   <span class="blob blob-1"></span>
   <span class="blob blob-2"></span>
@@ -48,11 +49,11 @@
 
 <header>
   <nav>
-    <a href="../" class="logo">SS<span class="dot">.</span></a>
+    <a href="./" class="logo">SS<span class="dot">.</span></a>
     <ul class="nav-links">
-      <li><a href="../" class="nav-link">Home</a></li>
-      <li><a href="./" class="nav-link active">Blog</a></li>
-      <li><a href="../now.html" class="nav-link">Now</a></li>
+      <li><a href="./" class="nav-link">Home</a></li>
+      <li><a href="blogs/" class="nav-link">Blog</a></li>
+      <li><a href="now.html" class="nav-link active">Now</a></li>
     </ul>
     <div class="nav-actions">
       <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle light/dark theme">
@@ -67,23 +68,21 @@
 </header>
 
 <main>
-  <div class="blog-header">
-    <h1>Blog</h1>
-    <p>Notes on SRE, incident management, Kubernetes, AWS, and building reliable systems.</p>
-  </div>
+  <section class="section" style="padding-top: 7rem;">
+    <div class="section-head fade-up">
+      <span class="section-kicker">Now</span>
+      <h1 class="section-title">What I'm doing now</h1>
+      <p class="now-updated">Last updated June 27, 2026</p>
+    </div>
 
-  <div class="post-list">
-    <!-- New posts get added here as a .post-card, most recent first. -->
-    <a href="kubernetes-roadmap.html" class="post-card">
-      <div class="post-meta">
-        <time class="post-date" datetime="2026-06-26">June 26, 2026</time>
-        <span class="post-read-time">· 4 min read</span>
+    <div class="skills-grid">
+      <div class="skill-card fade-up">
+        <div class="skill-icon">📚</div>
+        <h3>Learning</h3>
+        <p>Kubernetes — going deeper past the fundamentals covered in my <a href="blogs/kubernetes-roadmap.html">Kubernetes roadmap</a>, toward production-grade operations.</p>
       </div>
-      <h2>Kubernetes Roadmap: From Fundamentals to Production-Grade</h2>
-      <p>A complete, level-by-level map of Kubernetes — fundamentals, networking, security, observability, GitOps, and advanced topics — useful for anyone learning Kubernetes for an SRE or DevOps role.</p>
-      <span class="post-read-more">Read more &rarr;</span>
-    </a>
-  </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -93,6 +92,6 @@
   </button>
 </footer>
 
-<script src="../script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

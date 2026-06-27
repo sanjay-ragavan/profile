@@ -468,6 +468,12 @@ nav {
   letter-spacing: -0.5px;
 }
 
+.now-updated {
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
 /* About */
 .about-grid {
   display: grid;
