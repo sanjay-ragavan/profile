@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kubernetes Learning Checkpoint: 11 Modules In — Sanjay Selvaraj</title>
+<meta name="description" content="A checkpoint on my Kubernetes learning journey — fundamentals, workloads, networking, storage, monitoring, Helm, RBAC, and HPA, all done hands-on, with what's next on the roadmap.">
+<link rel="canonical" href="https://sanjay-ragavan.github.io/blogs/kubernetes-learning-checkpoint.html">
+
+<meta property="og:title" content="Kubernetes Learning Checkpoint: 11 Modules In">
+<meta property="og:description" content="A checkpoint on my Kubernetes learning journey — fundamentals, workloads, networking, storage, monitoring, Helm, RBAC, and HPA, all done hands-on, with what's next on the roadmap.">
+<meta property="og:image" content="https://sanjay-ragavan.github.io/assets/profile.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
+<meta property="og:image:alt" content="Sanjay Selvaraj">
+<meta property="og:url" content="https://sanjay-ragavan.github.io/blogs/kubernetes-learning-checkpoint.html">
+<meta property="og:site_name" content="Sanjay Selvaraj">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Kubernetes Learning Checkpoint: 11 Modules In">
+<meta name="twitter:description" content="A checkpoint on my Kubernetes learning journey — fundamentals through HPA, all done hands-on, with what's next on the roadmap.">
+<meta name="twitter:image" content="https://sanjay-ragavan.github.io/assets/profile.jpg">
+<meta name="twitter:image:alt" content="Sanjay Selvaraj">
+
+<meta name="theme-color" content="#0b1120">
+<meta name="author" content="Sanjay Selvaraj">
+<meta name="robots" content="index, follow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Kubernetes Learning Checkpoint: 11 Modules In",
+  "description": "A checkpoint on my Kubernetes learning journey — fundamentals, workloads, networking, storage, monitoring, Helm, RBAC, and HPA, all done hands-on, with what's next on the roadmap.",
+  "url": "https://sanjay-ragavan.github.io/blogs/kubernetes-learning-checkpoint.html",
+  "datePublished": "2026-06-27",
+  "author": {
+    "@type": "Person",
+    "name": "Sanjay Selvaraj",
+    "url": "https://sanjay-ragavan.github.io/"
+  }
+}
+</script>
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20rx%3D%2222%22%20fill%3D%22%230b1120%22/%3E%3Ctext%20x%3D%2234%22%20y%3D%2265%22%20font-size%3D%2240%22%20font-family%3D%22Arial%2C%20Helvetica%2C%20sans-serif%22%20font-weight%3D%22800%22%20fill%3D%22%23eef1fa%22%20text-anchor%3D%22middle%22%3ESS%3C/text%3E%3Ccircle%20cx%3D%2269%22%20cy%3D%2258%22%20r%3D%226%22%20fill%3D%22%2344e0c4%22/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<div class="bg-mesh" aria-hidden="true">
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+  <span class="blob blob-3"></span>
+  <span class="grid-overlay"></span>
+</div>
+
+<header>
+  <nav>
+    <a href="../" class="logo">SS<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="../" class="nav-link">Home</a></li>
+      <li><a href="./" class="nav-link active">Blog</a></li>
+      <li><a href="../now.html" class="nav-link">Now</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle theme" title="Toggle light/dark theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <article class="post-article">
+    <a href="./" class="back-to-blog">&larr; Back to blog</a>
+
+    <div class="post-meta">
+      <time class="post-date" datetime="2026-06-27">June 27, 2026</time>
+      <span class="post-read-time">· 5 min read</span>
+    </div>
+    <h1>Kubernetes Learning Checkpoint: 11 Modules In</h1>
+    <p class="post-subtitle">Everything covered so far against my <a href="kubernetes-roadmap.html">Kubernetes roadmap</a> — fundamentals through Horizontal Pod Autoscaling, all hands-on in a local Kind cluster.</p>
+
+    <div class="post-body">
+      <p>
+        This is a checkpoint, not a tutorial: a snapshot of what I've actually run and broken on purpose
+        in a local cluster, checked off against the roadmap. Everything below was done hands-on with
+        <code>kubectl</code> and <code>helm</code> on a multi-node Kind cluster, not just read about.
+      </p>
+
+      <h2>Module 1: Kubernetes Fundamentals</h2>
+      <ul>
+        <li><span class="check">✓</span> Kubernetes Architecture</li>
+        <li><span class="check">✓</span> Control Plane</li>
+        <li><span class="check">✓</span> Worker Nodes</li>
+        <li><span class="check">✓</span> Kind Cluster (Multi-node)</li>
+        <li><span class="check">✓</span> kubectl Basics</li>
+        <li><span class="check">✓</span> Namespaces</li>
+      </ul>
+
+      <h2>Module 2: Workloads</h2>
+      <ul>
+        <li><span class="check">✓</span> Pods</li>
+        <li><span class="check">✓</span> ReplicaSets</li>
+        <li><span class="check">✓</span> Deployments</li>
+        <li><span class="check">✓</span> Scaling Deployments</li>
+        <li><span class="check">✓</span> Rolling Updates</li>
+        <li><span class="check">✓</span> Rolling Rollbacks</li>
+        <li><span class="check">✓</span> DaemonSets</li>
+        <li><span class="check">✓</span> StatefulSets</li>
+        <li><span class="check">✓</span> Jobs &amp; CronJobs</li>
+      </ul>
+
+      <h2>Module 3: Networking</h2>
+      <ul>
+        <li><span class="check">✓</span> Services (ClusterIP)</li>
+        <li><span class="check">✓</span> Endpoints</li>
+        <li><span class="check">✓</span> DNS</li>
+        <li><span class="check">✓</span> Ingress</li>
+        <li><span class="check">✓</span> Ingress Controller</li>
+        <li><span class="check">✓</span> Host-based Routing</li>
+        <li><span class="check">✓</span> Traffic Flow</li>
+      </ul>
+      <pre><code>Client
+    &darr;
+Ingress
+    &darr;
+Service
+    &darr;
+Endpoints
+    &darr;
+Pods</code></pre>
+
+      <h2>Module 4: Configuration</h2>
+      <ul>
+        <li><span class="check">✓</span> ConfigMaps</li>
+        <li><span class="check">✓</span> Secrets</li>
+        <li><span class="check">✓</span> Environment Variables</li>
+        <li><span class="check">✓</span> Secret Mounting</li>
+      </ul>
+
+      <h2>Module 5: Resource Management</h2>
+      <ul>
+        <li><span class="check">✓</span> CPU Requests</li>
+        <li><span class="check">✓</span> CPU Limits</li>
+        <li><span class="check">✓</span> Memory Requests</li>
+        <li><span class="check">✓</span> Memory Limits</li>
+        <li><span class="check">✓</span> Linux cgroups</li>
+        <li><span class="check">✓</span> CPU Throttling</li>
+        <li><span class="check">✓</span> OOMKilled</li>
+        <li><span class="check">✓</span> Stress Testing</li>
+      </ul>
+
+      <h2>Module 6: Health Checks</h2>
+      <ul>
+        <li><span class="check">✓</span> Readiness Probe</li>
+        <li><span class="check">✓</span> Liveness Probe</li>
+        <li><span class="check">✓</span> Probe Troubleshooting</li>
+        <li><span class="check">✓</span> CrashLoopBackOff Analysis</li>
+      </ul>
+
+      <h2>Module 7: Storage</h2>
+      <ul>
+        <li><span class="check">✓</span> Persistent Volumes (PV)</li>
+        <li><span class="check">✓</span> Persistent Volume Claims (PVC)</li>
+        <li><span class="check">✓</span> StorageClass</li>
+        <li><span class="check">✓</span> Static Provisioning</li>
+        <li><span class="check">✓</span> Data Persistence Verification</li>
+        <li><span class="check">✓</span> PV &harr; PVC Binding</li>
+      </ul>
+
+      <h2>Module 8: Monitoring</h2>
+      <ul>
+        <li><span class="check">✓</span> Metrics Server</li>
+        <li><span class="check">✓</span> Prometheus</li>
+        <li><span class="check">✓</span> Grafana</li>
+        <li><span class="check">✓</span> <code>kubectl top pods</code></li>
+        <li><span class="check">✓</span> <code>kubectl top nodes</code></li>
+      </ul>
+
+      <h2>Module 9: Helm</h2>
+      <ul>
+        <li><span class="check">✓</span> Helm Repository</li>
+        <li><span class="check">✓</span> Helm Charts</li>
+        <li><span class="check">✓</span> Install Charts</li>
+        <li><span class="check">✓</span> Upgrade Charts</li>
+        <li><span class="check">✓</span> Rollback</li>
+        <li><span class="check">✓</span> Revision History</li>
+        <li><span class="check">✓</span> Helm Releases</li>
+      </ul>
+
+      <h2>Module 10: RBAC (Security)</h2>
+      <ul>
+        <li><span class="check">✓</span> ServiceAccount</li>
+        <li><span class="check">✓</span> Role</li>
+        <li><span class="check">✓</span> RoleBinding</li>
+        <li><span class="check">✓</span> RBAC Flow</li>
+        <li><span class="check">✓</span> Permission Verification</li>
+        <li><span class="check">✓</span> <code>kubectl auth can-i</code></li>
+      </ul>
+      <pre><code>Pod
+ &darr;
+ServiceAccount
+ &darr;
+RoleBinding
+ &darr;
+Role
+ &darr;
+Permissions</code></pre>
+
+      <h2>Module 11: Horizontal Pod Autoscaler (HPA)</h2>
+      <ul>
+        <li><span class="check">✓</span> HPA Architecture</li>
+        <li><span class="check">✓</span> Metrics Server Integration</li>
+        <li><span class="check">✓</span> CPU Utilization</li>
+        <li><span class="check">✓</span> Scale Up</li>
+        <li><span class="check">✓</span> Scale Down</li>
+        <li><span class="check">✓</span> MinReplicas / MaxReplicas</li>
+        <li><span class="check">✓</span> Scaling Events &amp; Limits</li>
+        <li><span class="check">✓</span> Average CPU Across Pods</li>
+        <li><span class="check">✓</span> HPA Troubleshooting</li>
+      </ul>
+      <pre><code>CPU Usage
+      &darr;
+Metrics Server
+      &darr;
+HPA
+      &darr;
+Deployment Replica Count
+      &darr;
+Pods Created/Deleted</code></pre>
+      <p>The formula that ties it together:</p>
+      <pre><code>CPU Utilization = Current CPU Usage / CPU Request</code></pre>
+
+      <h2>Troubleshooting skills practiced</h2>
+      <ul>
+        <li><span class="check">✓</span> Metrics Server not collecting metrics</li>
+        <li><span class="check">✓</span> <code>--kubelet-insecure-tls</code> fix</li>
+        <li><span class="check">✓</span> PVC Pending state</li>
+        <li><span class="check">✓</span> Readiness probe failures</li>
+        <li><span class="check">✓</span> Liveness probe failures</li>
+        <li><span class="check">✓</span> CrashLoopBackOff analysis</li>
+        <li><span class="check">✓</span> CPU throttling analysis</li>
+        <li><span class="check">✓</span> OOMKilled diagnosis</li>
+        <li><span class="check">✓</span> HPA scaling verification</li>
+        <li><span class="check">✓</span> Helm rollback verification</li>
+      </ul>
+
+      <h2>Commands I'm comfortable with</h2>
+      <pre><code>kubectl get
+kubectl describe
+kubectl logs
+kubectl exec
+kubectl top
+kubectl apply
+kubectl delete
+kubectl scale
+kubectl rollout
+kubectl auth can-i
+kubectl autoscale
+
+helm repo
+helm install
+helm list
+helm upgrade
+helm history
+helm rollback
+helm uninstall</code></pre>
+
+      <h2>Current level</h2>
+      <ul>
+        <li><span class="check">✓</span> Linux Fundamentals</li>
+        <li><span class="check">✓</span> Docker</li>
+        <li><span class="check">✓</span> Kubernetes Core</li>
+        <li><span class="check">✓</span> Monitoring (Prometheus/Grafana)</li>
+        <li><span class="check">✓</span> Helm</li>
+        <li><span class="check">✓</span> RBAC</li>
+        <li><span class="check">✓</span> HPA</li>
+        <li><span class="check">✓</span> Troubleshooting</li>
+      </ul>
+
+      <h2>What's next</h2>
+      <p>Core fundamentals and practical labs are done. Next, moving into production-oriented topics:</p>
+      <ol>
+        <li>Network Policies (Kubernetes networking security)</li>
+        <li>Taints &amp; Tolerations</li>
+        <li>Affinity &amp; Anti-Affinity</li>
+        <li>AWS EKS</li>
+        <li>Argo CD (GitOps)</li>
+        <li>Production Kubernetes Troubleshooting</li>
+      </ol>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; <span id="year"></span> Sanjay Selvaraj. Designed by Sanjay, built with Claude.</p>
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5m0 0l-6 6m6-6l6 6"/></svg>
+  </button>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
